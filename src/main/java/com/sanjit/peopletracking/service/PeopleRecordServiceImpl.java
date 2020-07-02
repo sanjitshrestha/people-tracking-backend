@@ -1,8 +1,6 @@
 package com.sanjit.peopletracking.service;
 
 import com.sanjit.peopletracking.dto.PeopleRecordDTO;
-import com.sanjit.peopletracking.dto.PeopleRecordDTO;
-import com.sanjit.peopletracking.entity.PeopleRecord;
 import com.sanjit.peopletracking.entity.PeopleRecord;
 import com.sanjit.peopletracking.mapper.PeopleRecordMapper;
 import com.sanjit.peopletracking.repository.PeopleRecordRepository;
@@ -83,8 +81,8 @@ public class PeopleRecordServiceImpl implements PeopleRecordService {
         peopleRecordDTO.setPeopleId(peopleRecord.getPeople().getId());
         peopleRecordDTO.setPeopleName(peopleRecord.getPeople().getPeopleName());
         peopleRecord.setVersion(peopleRecord.getVersion());
-        if ( peopleRecord.getStatus() != null ) {
-            peopleRecordDTO.setStatus( peopleRecord.getStatus().name() );
+        if (peopleRecord.getStatus() != null) {
+            peopleRecordDTO.setStatus(peopleRecord.getStatus().name());
         }
         return peopleRecordDTO;
     }

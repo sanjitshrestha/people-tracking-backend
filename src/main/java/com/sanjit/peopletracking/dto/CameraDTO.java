@@ -1,7 +1,5 @@
 package com.sanjit.peopletracking.dto;
 
-import com.sanjit.peopletracking.enumconstant.Status;
-
 import java.io.Serializable;
 
 public class CameraDTO implements Serializable {
