@@ -18,32 +18,31 @@ public class CameraController {
     private CameraService cameraService;
 
     @PostMapping("/camera-save")
-    public ResponseEntity<?> saveCamera(@RequestBody CameraDTO cameraDTO){
+    public ResponseEntity<?> saveCamera(@RequestBody CameraDTO cameraDTO) {
         return new ResponseEntity<>(cameraService.saveCamera(cameraDTO), HttpStatus.OK);
     }
 
     @GetMapping("/camera/all")
-    public ResponseEntity<?> findAllCamera(){
+    public ResponseEntity<?> findAllCamera() {
         return new ResponseEntity<>(cameraService.findAllCamera(), HttpStatus.OK);
     }
 
     @GetMapping("/camera/pagination/all")
     public ResponseEntity<?> getAllCamera(@RequestParam(defaultValue = "1") Integer pageNo,
                                           @RequestParam(defaultValue = "10") Integer pageSize,
-                                          @RequestParam(defaultValue = "id") String sortBy){
-        Map cameraList = cameraService.findCamera(pageNo-1, pageSize, sortBy);
+                                          @RequestParam(defaultValue = "id") String sortBy) {
+        Map cameraList = cameraService.findCamera(pageNo - 1, pageSize, sortBy);
 
         return new ResponseEntity<>(cameraList, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/camera/id/{id}")
-    public ResponseEntity<?> cameraById(@PathVariable("id") Long id){
+    public ResponseEntity<?> cameraById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(cameraService.findCameraId(id), HttpStatus.OK);
     }
 
-    @GetMapping(value="/location/filter/{id}")
-    public ResponseEntity<?> findCameraByLocation(@PathVariable Long id)
-    {
+    @GetMapping(value = "/location/filter/{id}")
+    public ResponseEntity<?> findCameraByLocation(@PathVariable Long id) {
         return new ResponseEntity<>(cameraService.getCameraByLocationId(id), HttpStatus.OK);
     }
 }

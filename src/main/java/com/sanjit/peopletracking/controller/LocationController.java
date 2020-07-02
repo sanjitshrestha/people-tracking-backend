@@ -18,26 +18,26 @@ public class LocationController {
     private LocationService locationService;
 
     @PostMapping("/location-save")
-    public ResponseEntity<?> saveLocation(@RequestBody LocationDTO locationDTO){
+    public ResponseEntity<?> saveLocation(@RequestBody LocationDTO locationDTO) {
         return new ResponseEntity<>(locationService.saveLocation(locationDTO), HttpStatus.OK);
     }
 
     @GetMapping("/location/all")
-    public ResponseEntity<?> findAllLocation(){
+    public ResponseEntity<?> findAllLocation() {
         return new ResponseEntity<>(locationService.findAllLocation(), HttpStatus.OK);
     }
 
     @GetMapping("/location/pagination/all")
     public ResponseEntity<?> getAllLocation(@RequestParam(defaultValue = "1") Integer pageNo,
                                             @RequestParam(defaultValue = "10") Integer pageSize,
-                                            @RequestParam(defaultValue = "id") String sortBy){
-        Map locationList = locationService.findLocation(pageNo-1, pageSize, sortBy);
+                                            @RequestParam(defaultValue = "id") String sortBy) {
+        Map locationList = locationService.findLocation(pageNo - 1, pageSize, sortBy);
 
         return new ResponseEntity<>(locationList, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/location/id/{id}")
-    public ResponseEntity<?> locationById(@PathVariable("id") Long id){
+    public ResponseEntity<?> locationById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(locationService.findByLocationId(id), HttpStatus.OK);
     }
 }

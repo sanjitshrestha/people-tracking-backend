@@ -18,12 +18,12 @@ public class PeopleRecordController {
     private PeopleRecordService peopleRecordService;
 
     @PostMapping("/people-record/save")
-    public ResponseEntity<?> savePeopleRecord(@RequestBody PeopleRecordDTO peopleRecordDTO){
+    public ResponseEntity<?> savePeopleRecord(@RequestBody PeopleRecordDTO peopleRecordDTO) {
         return new ResponseEntity<>(peopleRecordService.savePeopleRecord(peopleRecordDTO), HttpStatus.OK);
     }
 
     @GetMapping("/people-record/all")
-    public ResponseEntity<?> findAllPeoplrRecord(){
+    public ResponseEntity<?> findAllPeoplrRecord() {
         return new ResponseEntity<>(peopleRecordService.findAllPeopleRecord(), HttpStatus.OK);
     }
 
@@ -36,7 +36,7 @@ public class PeopleRecordController {
     }
 
     @GetMapping("/people-record/id/{id}")
-    public ResponseEntity<?> peopleRecordById(@PathVariable("id") Long id){
+    public ResponseEntity<?> peopleRecordById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(peopleRecordService.findPeopleRecordId(id), HttpStatus.OK);
     }
 }

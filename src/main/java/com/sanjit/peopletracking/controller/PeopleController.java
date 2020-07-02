@@ -18,26 +18,26 @@ public class PeopleController {
     private PeopleService peopleService;
 
     @PostMapping("/people-save")
-    public ResponseEntity<?> savePeople(@RequestBody PeopleDTO peopleDTO){
+    public ResponseEntity<?> savePeople(@RequestBody PeopleDTO peopleDTO) {
         return new ResponseEntity<>(peopleService.savePeople(peopleDTO), HttpStatus.OK);
     }
 
     @GetMapping("/people/all")
-    public ResponseEntity<?> findAllPeople(){
+    public ResponseEntity<?> findAllPeople() {
         return new ResponseEntity<>(peopleService.findAllPeople(), HttpStatus.OK);
     }
 
     @GetMapping("/people/pagination/all")
     public ResponseEntity<?> getAllPeople(@RequestParam(defaultValue = "1") Integer pageNo,
                                           @RequestParam(defaultValue = "10") Integer pageSize,
-                                          @RequestParam(defaultValue = "id") String sortBy){
-        Map peopleList = peopleService.findPeople(pageNo -1, pageSize, sortBy);
+                                          @RequestParam(defaultValue = "id") String sortBy) {
+        Map peopleList = peopleService.findPeople(pageNo - 1, pageSize, sortBy);
 
         return new ResponseEntity<>(peopleList, new HttpHeaders(), HttpStatus.OK);
     }
 
     @GetMapping("/people/id/{id}")
-    public ResponseEntity<?> findPeopleById(@PathVariable("id") Long id){
+    public ResponseEntity<?> findPeopleById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(peopleService.findByPeopleId(id), HttpStatus.OK);
     }
 }
