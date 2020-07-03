@@ -20,7 +20,7 @@ import java.util.Map;
 @Service
 public class PeopleServiceImpl implements PeopleService {
 
-    private final Logger log = LoggerFactory.getLogger(LocationServiceImpl.class);
+    private final Logger log = LoggerFactory.getLogger(PeopleServiceImpl.class);
 
     @Autowired
     private PeopleRepository peopleRepository;
